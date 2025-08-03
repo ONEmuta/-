@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* User-defined dark palette */
+    --primary: 260 100% 75%; /* #9E7FFF */
+    --secondary: 200 90% 60%; /* #38bdf8 */
+    --accent: 330 80% 70%; /* #f472b6 */
+    --background: 240 10% 5%; /* #171717 */
+    --surface: 240 10% 10%; /* #262626 - mapped to card */
+    --foreground: 0 0% 100%; /* #FFFFFF */
+    --text-secondary: 240 5% 64%; /* #A3A3A3 - mapped to muted-foreground */
+    --border: 240 5% 18%; /* #2F2F2F */
+    --input: 240 5% 18%; /* #2F2F2F */
+    --ring: 240 5% 83%; /* Adjusted for contrast */
+    --success: 150 70% 40%; /* #10b981 */
+    --warning: 38 90% 50%; /* #f59e0b */
+    --error: 0 80% 50%; /* #ef4444 */
+
+    /* Shadcn mappings */
+    --card: var(--surface);
+    --card-foreground: var(--foreground);
+    --popover: var(--surface);
+    --popover-foreground: var(--foreground);
+    --primary-foreground: var(--background); /* Contrast with primary */
+    --secondary-foreground: var(--background); /* Contrast with secondary */
+    --muted: var(--surface);
+    --muted-foreground: var(--text-secondary);
+    --accent-foreground: var(--background); /* Contrast with accent */
+    --destructive: var(--error);
+    --destructive-foreground: var(--foreground);
+
+    --radius: 1rem; /* Increased for more rounded features */
+  }
+
+  /* Ensure Inter font is used */
+  body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  /* Apply base styles */
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom scrollbar for a cleaner look */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
